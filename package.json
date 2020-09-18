@@ -5,10 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "cssbuild": "npx tailwindcss build src/assets/css/tailwind.css -o src/assets/css/styles.css"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "tailwindcss": "^1.8.10",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
