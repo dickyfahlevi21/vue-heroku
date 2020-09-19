@@ -32,6 +32,12 @@
 -   [ ] Update Product IN by ID
 -   [ ] Update Product OUT by ID
 
+## Download
+
+-   [ ] Download Product All
+-   [ ] Download Product IN
+-   [ ] Download Product OUT
+
 ## Project setup
 
 ```
