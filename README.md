@@ -11,8 +11,8 @@
 -   [x] Total Product
 -   [x] Total Product IN
 -   [x] Total Product OUT
--   [ ] User By ID
--   [ ] Product By ID
+-   [x] User By ID
+-   [x] Product By ID
 
 ## Post
 

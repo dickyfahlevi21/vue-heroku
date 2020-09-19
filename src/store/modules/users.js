@@ -7,23 +7,17 @@ const state = {
 
 const mutations = {
     setUsersList(state, payload) {
-        state.users = payload;
+        state.users = payload
     }
 }
 
 const actions = {
-    async getUser({
-        commit
-    }) {
-        const {
-            data
-        } = await APIV1.get("/user", {
-            headers: {
-                Authorization: `bearer ${localStorage.getItem("token")}`
-            }
-        });
-        console.log(data.data.data, " INI USER DARI ACTION ");
-        commit("setUsersList", data.data.data);
+    async getUser({ commit }) {
+        const { data } = await APIV1.get("/user", {
+            headers: { Authorization: `bearer ${localStorage.getItem("token")}` }
+        })
+        // console.log(data.data.data, " INI USER DARI ACTION ")
+        commit("setUsersList", data.data.data)
     },
 }
 

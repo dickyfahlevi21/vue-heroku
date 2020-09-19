@@ -26,17 +26,27 @@ const routes = [{
   {
     path: '/dashboard-home',
     name: 'Home',
-    component: () => import( /* webpackChunkName: "dashboard" */ '../components/Dashboard/Home/Home.component')
+    component: () => import( /* webpackChunkName: "dashboard-home" */ '../components/Dashboard/Home/Home.component')
   },
   {
     path: '/dashboard-product',
     name: 'Product',
-    component: () => import( /* webpackChunkName: "dashboard" */ '../components/Dashboard/Product/Product.component')
+    component: () => import( /* webpackChunkName: "dashboard-product" */ '../components/Dashboard/Product/All/Product.component')
+  },
+  {
+    path: '/dashboard-product/:id',
+    name: 'ProductDetail',
+    component: () => import( /* webpackChunkName: "dashboard-product-detail" */ '../components/Dashboard/Product/All/ProductDetail.component')
   },
   {
     path: '/dashboard-user',
     name: 'User',
-    component: () => import( /* webpackChunkName: "dashboard" */ '../components/Dashboard/User/User.component')
+    component: () => import( /* webpackChunkName: "dashboard-user" */ '../components/Dashboard/User/User.component')
+  },
+  {
+    path: '/dashboard-user/:id',
+    name: 'UserDetail',
+    component: () => import( /* webpackChunkName: "dashboard-user-detail" */ '../components/Dashboard/User/UserDetail.component')
   }
 ]
 

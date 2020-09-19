@@ -21,6 +21,7 @@
                             </tr>
                         </thead>
 
+
                         <tbody
                             v-for="(product, idx) in products.products"
                             :key="idx"
@@ -39,13 +40,21 @@
                                     {{ product.supplier.full_name }}
                                 </td>
                                 <td class="px-4 w-1/5 py-4">
+                                    <router-link
+                                        :to="`dashboard-product/${product.id}`"
+                                        class="mr-2 py-3 px-3 bg-blue-500 border rounded-md text-white"
+                                    >
+                                        <i class="fas fa-eye"></i>
+                                    </router-link>
                                     <button
                                         class="mr-2 py-2 px-3 bg-green-500 border rounded-md text-white"
+                                        @click="editProduct"
                                     >
                                         <i class="fas fa-pencil-alt"></i>
                                     </button>
                                     <button
                                         class="mr-2 py-2 px-3 bg-red-500 border rounded-md text-white"
+                                        @click="deleteProduct"
                                     >
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
@@ -60,9 +69,9 @@
 </template>
 
 <script>
-    import SideBar from "@/components/Sidebar/SideBar.component";
-    import AddProduct from "@/components/Modal/AddProduct.component";
-    import { mapActions, mapState } from "vuex";
+    import SideBar from "@/components/Sidebar/SideBar.component"
+    import AddProduct from "@/components/Modal/AddProduct.component"
+    import { mapActions, mapState } from "vuex"
     export default {
         name: "Product",
         components: {
@@ -71,22 +80,34 @@
         },
         props: {},
         data() {
-            return {};
+            return {
+                message: ''
+            }
         },
         computed: {
             ...mapState(["products"]),
         },
         methods: {
             ...mapActions(["getProduct"]),
+            editProduct(msg){
+                this.message = 'Mohon Maaf belum bisa Edit'
+                msg = this.message
+                alert(msg)
+            },
+            deleteProduct(msg) {
+                this.message = 'Mohon Maaf belum bisa Hapus'
+                msg = this.message
+                alert(msg)
+            }
         },
         created() {
-            this.getProduct();
+            this.getProduct()
         },
-    };
+    }
 </script>
 
 <style scoped>
     .float-left {
-        text-align: left !important;
+        text-align: left !important
     }
 </style>
