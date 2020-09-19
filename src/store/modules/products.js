@@ -4,7 +4,8 @@ import APIV1 from "../../services/api"
 const state = {
     products: [],
     productIn: [],
-    productOut: []
+    productOut: [],
+    postLoading: false,
 }
 
 const mutations = {
@@ -16,7 +17,10 @@ const mutations = {
     },
     setProductOut(state, payload) {
         state.productOut = payload
-    }
+    },
+    setBoolean(state, payload) {
+        state[payload.key] = payload.value;
+    },
 }
 
 const actions = {
@@ -58,6 +62,25 @@ const actions = {
         });
         console.log(data.data.data, " INI PRODUCTS OUT DARI ACTION ");
         commit("setProductOut", data.data.data);
+    },
+    async addProduct({
+        commit
+    }, payload) {
+        console.log(commit)
+        APIV1.post("/product?limit=100&page=1", payload, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log({
+                    err: err
+                });
+            });
     },
 }
 

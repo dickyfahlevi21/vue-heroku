@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const APIV1 = axios.create({
-    baseURL: `https://simple-wms.herokuapp.com/api/v1/`,
+    baseURL: `https://simple-wms.herokuapp.com/api/v1`,
     headers: {
         "Content-Type": "application/json",
     },
