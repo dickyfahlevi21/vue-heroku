@@ -3,27 +3,27 @@ import APIV1 from "../../services/api"
 
 const state = {
     users: [],
-    products: [],
 }
 
 const mutations = {
-    setProductList(state, payload) {
-        state.products = payload;
-    },
-    setBoolean(state, payload) {
-        state[payload.key] = payload.value;
-    },
+    setUsersList(state, payload) {
+        state.users = payload;
+    }
 }
 
 const actions = {
-    async getProduct({
+    async getUser({
         commit
     }) {
         const {
             data
-        } = await APIV1.get("/product");
-        console.log(data.data.data, " ini get ");
-        commit("setProductList", data.data.data);
+        } = await APIV1.get("/user", {
+            headers: {
+                Authorization: `bearer ${localStorage.getItem("token")}`
+            }
+        });
+        console.log(data.data.data, " INI USER DARI ACTION ");
+        commit("setUsersList", data.data.data);
     },
 }
 

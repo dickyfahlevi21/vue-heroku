@@ -1,10 +1,6 @@
 import axios from 'axios'
 
 
-const token = localStorage.getItem("token") || '';
-axios.defaults.headers.common = {
-    Authorization: `bearer ${token}`
-};
 const APIV1 = axios.create({
     baseURL: `https://simple-wms.herokuapp.com/api/v1/`,
     headers: {

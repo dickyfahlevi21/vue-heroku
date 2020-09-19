@@ -10,12 +10,18 @@ const routes = [{
   {
     path: '/login',
     name: 'Login',
-    component: () => import( /* webpackChunkName: "register" */ '../views/auth/Login.view')
+    component: () => import( /* webpackChunkName: "register" */ '../views/auth/Login.view'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import( /* webpackChunkName: "register" */ '../views/auth/Register.view')
+    component: () => import( /* webpackChunkName: "register" */ '../views/auth/Register.view'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard-home',
@@ -34,10 +40,21 @@ const routes = [{
   }
 ]
 
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => !record.meta.requiresAuth)) {
+    !localStorage.getItem("token") ? next({
+      path: '/login',
+    }) : next()
+  } else {
+    next() // make sure to always call next()!
+  }
 })
 
 export default router
