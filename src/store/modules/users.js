@@ -12,6 +12,9 @@ const mutations = {
 }
 
 const actions = {
+    /**
+     * @GET
+     */
     async getUser({ commit }) {
         const { data } = await APIV1.get("/user", {
             headers: { Authorization: `bearer ${localStorage.getItem("token")}` }

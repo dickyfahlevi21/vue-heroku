@@ -39,6 +39,16 @@ const routes = [{
     component: () => import( /* webpackChunkName: "dashboard-product-detail" */ '../components/Dashboard/Product/All/ProductDetail.component')
   },
   {
+    path: '/dashboard-product-in',
+    name: 'ProductIn',
+    component: () => import( /* webpackChunkName: "dashboard-product-in" */ '../components/Dashboard/Product/In/ProductIn.component')
+  },
+  {
+    path: '/dashboard-product-out',
+    name: 'ProductOut',
+    component: () => import( /* webpackChunkName: "dashboard-product-out" */ '../components/Dashboard/Product/Out/ProductOut.component')
+  },
+  {
     path: '/dashboard-user',
     name: 'User',
     component: () => import( /* webpackChunkName: "dashboard-user" */ '../components/Dashboard/User/User.component')

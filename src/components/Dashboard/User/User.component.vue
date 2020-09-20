@@ -3,8 +3,17 @@
     <div class="w-full flex">
         <SideBar />
         <div class="w-5/6 bg-gray-500 text-center h-screen">
-            <div class="w-11/12 container-dashboard bg-white mx-auto">
-                <div class="">
+            <!-- Tab User -->
+            <div class="tab text-left mt-10 ml-16">
+                <router-link to="/dashboard-user">
+                    <button class="color-primary inline-block py-4 text-left px-5 rounded-t">
+                        <i class="fas fa-user inline-block mr-3"></i>
+                        <p class="text-base inline-block font-bold">User</p>
+                    </button>
+                </router-link> 
+            </div>
+            <div class="w-11/12 bg-white mx-auto">
+                <div>
                     <table class="table-auto w-full">
                         <thead class="bg-gray-200">
                             <tr>
@@ -87,5 +96,30 @@
         border: 1px solid #4299e1;
         box-sizing: border-box;
         border-radius: 8px;
+    }
+    .tab a {
+        font-weight: bold;
+        color: #ffffff;
+        padding: 20px 0;
+        background-color: #4299e1;
+        border-radius: 4px 4px 0 0;
+        margin: 0 2px;
+    }
+
+    .tab a.router-link-exact-active {
+        font-weight: bold;
+        color: #4A5568;
+        padding: 20px 0;
+        background-color: #ffffff;
+        border-radius: 4px 4px 0 0;
+        margin: 0 2px;
+    }
+
+    .tab a:hover {
+        color: #ffffff;
+        padding: 20px 0;
+        background-color: #4299e1;
+        border-radius: 4px 4px 0 0;
+        margin: 0 2px;
     }
 </style>

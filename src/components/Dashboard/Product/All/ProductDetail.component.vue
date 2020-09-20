@@ -2,7 +2,8 @@
   <div class="w-full flex">
         <SideBar />
         <div class="w-5/6 bg-gray-500 h-screen">
-            <div class="w-11/12 container-dashboard bg-white mx-auto">
+            <TabPanel/>
+            <div class="w-11/12 bg-white mx-auto">
                 <div class="pt-6">
                     <AddProduct />
                     <div class="mt-12 w-full">
@@ -30,14 +31,16 @@
 
 <script>
     import SideBar from "@/components/Sidebar/SideBar.component"
-    import AddProduct from "@/components/Modal/AddProduct.component"
+    import AddProduct from "@/components/Modal/Add/AddProduct.component"
+    import TabPanel from "@/components/TabPanel/TabPanel.component"
     import { mapActions, mapState } from "vuex"
 
     export default {
         name: "ProductDetail",
         components: {
             SideBar,
-            AddProduct
+            AddProduct,
+            TabPanel
         },
         data() {
             return {

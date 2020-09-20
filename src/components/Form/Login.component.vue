@@ -67,8 +67,7 @@
                     username: this.username,
                     password: this.password,
                 };
-                console.log(payload, " ini payload ");
-
+                // console.log(payload, " ini payload ");
                 this.LogIn(payload);
             },
             ...mapActions(["LogIn"]),

@@ -30,6 +30,9 @@ const mutations = {
 }
 
 const actions = {
+    /**
+     * @POST
+     */
     async registerAction({ commit }, payload) {
         commit("setBoolean", {
             key: "postLoading",

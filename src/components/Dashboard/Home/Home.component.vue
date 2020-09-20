@@ -3,7 +3,17 @@
   <div class="w-full flex">
     <SideBar />
     <div class="w-5/6 bg-gray-500 text-center h-screen">
-      <div class="w-11/12 container-dashboard bg-white mx-auto">
+    <!-- Tab Dashboard -->
+      <div class="tab text-left mt-10 ml-16">
+        <router-link to="/dashboard-home">
+            <button class="color-primary inline-block py-4 text-left px-3 rounded-t">
+                <i class="fas fa-chart-line inline-block mr-3"></i>
+                <p class="text-base inline-block font-bold">Dashboard</p>
+            </button>
+        </router-link>
+      </div>
+      <!-- Content -->
+      <div class="w-11/12 bg-white mx-auto">
         <div class="pt-6 flex flex-wrap">
           <div class="w-full md:w-1/2 mx-auto p-4">
             <div class="card-home py-4 w-4/5 mx-auto">
@@ -81,12 +91,34 @@ export default {
   border-radius: 8px;
   margin-top: 20px;
 }
-.container-dashboard {
-  height: 85% !important;
-  margin-top: 5% !important;
-}
 
 .bg-gray-500 {
   background-color: #f6f6f6 !important;
+}
+
+.tab a {
+    font-weight: bold;
+    color: #ffffff;
+    padding: 20px 0;
+    background-color: #4299e1;
+    border-radius: 4px 4px 0 0;
+    margin: 0 2px;
+}
+
+.tab a.router-link-exact-active {
+    font-weight: bold;
+    color: #4A5568;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-radius: 4px 4px 0 0;
+    margin: 0 2px;
+}
+
+.tab a:hover {
+    color: #ffffff;
+    padding: 20px 0;
+    background-color: #4299e1;
+    border-radius: 4px 4px 0 0;
+    margin: 0 2px;
 }
 </style>

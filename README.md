@@ -2,6 +2,7 @@
 
 -   [x] Register
 -   [x] Login
+-   [x] Logout
 
 ## GET
 
@@ -17,26 +18,20 @@
 ## Post
 
 -   [x] Post Product
--   [ ] Post Product IN
--   [ ] Post Product OUT
+-   [x] Post Product IN
+-   [x] Post Product OUT
 
 ## Delete
 
--   [ ] Delete Product by ID
--   [ ] Delete Product IN by ID
--   [ ] Delete Product OUT by ID
+-   [x] Delete Product by ID
+-   [x] Delete Product IN by ID
+-   [x] Delete Product OUT by ID
 
 ## Update
 
--   [ ] Update Product by ID
--   [ ] Update Product IN by ID
--   [ ] Update Product OUT by ID
-
-## Download
-
--   [ ] Download Product All
--   [ ] Download Product IN
--   [ ] Download Product OUT
+-   [x] Update Product by ID
+-   [x] Update Product IN by ID
+-   [x] Update Product OUT by ID
 
 ## Project setup
 

@@ -6,8 +6,8 @@
             <TabPanel/>
             <div class="w-11/12 bg-white mx-auto">
                 <div class="pt-6">
-                    <AddProduct />
-                    <UpdateProduct />
+                    <AddProductOut />
+                    <UpdateProductOut />
                     <!-- Download Button -->
                     <button
                         class="float-right text-base rounded-md border-2 bg-blue-500 text-white mr-4 mb-5 py-2 px-4"
@@ -15,52 +15,45 @@
                         @click="downloadFile"
                     >
                         <i class="fas fa-cloud-download-alt inline-block"></i>
-                        <p class="inline-block ml-2">Download Product All</p>
+                        <p class="inline-block ml-2">Download Product OUT</p>
                     </button>
                     <!-- Table List -->
                     <table class="table-auto mt-12 w-full">
                         <thead class="bg-gray-200">
                             <tr>
-                                <th class="px-4 w-1/5 py-4 text-left">
-                                    Product Name
-                                </th>
+                                <th class="px-4 w-1/5 py-4 text-left">Tanggal</th>
+                                <th class="px-4 w-1/5 py-4 text-left">Nama Product</th>
+                                <th class="px-4 w-1/6 py-4 text-left">Total</th>
                                 <th class="px-4 w-1/5 py-4 text-left">Stock</th>
-                                <th class="px-4 w-1/5 py-4 text-left">Price</th>
-                                <th class="px-4 w-1/5 py-4 text-left">
-                                    Supplier
-                                </th>
+                                <th class="px-4 w-1/5 py-4 text-left">Harga</th>
                                 <th class="px-4 w-1/5 py-4"></th>
                             </tr>
                         </thead>
 
-
                         <tbody
-                            v-for="(product, idx) in products.products"
+                            v-for="(product, idx) in products.productOut"
                             :key="idx"
                         >
                             <tr>
                                 <td class="px-4 w-1/5 py-4 text-left">
-                                    {{ product.name }}
+                                    {{ product.date }}
                                 </td>
                                 <td class="px-4 w-1/5 py-4 text-left">
-                                    {{ product.stock }}
+                                    {{ product.Product.name }}
+                                </td>
+                                <td class="px-4 w-1/6 py-4 text-left">
+                                    {{ product.total }}
                                 </td>
                                 <td class="px-4 w-1/5 py-4 text-left">
-                                    {{ product.price | currency }}
+                                    {{ product.Product.stock }}
                                 </td>
                                 <td class="px-4 w-1/5 py-4 text-left">
-                                    {{ product.supplier.full_name }}
+                                    {{ product.Product.price | currency }}
                                 </td>
                                 <td class="px-4 w-1/5 py-4">
-                                    <router-link
-                                        :to="`dashboard-product/${product.id}`"
-                                        class="mr-2 py-3 px-3 bg-blue-500 border rounded-md text-white"
-                                    >
-                                        <i class="fas fa-eye"></i>
-                                    </router-link>
                                     <button
                                         class="mr-2 py-2 px-3 bg-red-500 border rounded-md text-white"
-                                        @click="deleteProduct(product.id)"
+                                        @click="deleteProductsOut(product.id)"
                                     >
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
@@ -76,17 +69,17 @@
 
 <script>
     import SideBar from "@/components/Sidebar/SideBar.component"
-    import AddProduct from "@/components/Modal/Add/AddProduct.component"
+    import AddProductOut from "@/components/Modal/Add/AddProductOut.component"
+    import UpdateProductOut from '@/components/Modal/Update/UpdateProductOut.component'
     import TabPanel from "@/components/TabPanel/TabPanel.component"
-    import UpdateProduct from "@/components/Modal/Update/UpdateProduct.component"
     import { mapActions, mapState } from "vuex"
     export default {
         name: "Product",
         components: {
             SideBar,
-            AddProduct,
-            TabPanel,
-            UpdateProduct
+            AddProductOut,
+            UpdateProductOut,
+            TabPanel
         },
         props: {},
         data() {
@@ -94,18 +87,18 @@
                 message: ''
             }
         },
-        computed: {
+       computed: {
             ...mapState(["products"]),
         },
         methods: {
-            ...mapActions(["getProduct", "deleteProductById"]),
+            ...mapActions(["getProductOut", "deleteProductOut"]),
             editProduct(msg){
                 this.message = 'Mohon Maaf belum bisa Edit'
                 msg = this.message
                 alert(msg)
-            },
-            deleteProduct(e) {
-               this.deleteProductById(e)
+            },            
+            deleteProductsOut(e) {
+                this.deleteProductOut(e)
             },
             downloadFile(msg) {
                 this.message = 'Mohon Maaf belum bisa Download'
@@ -114,7 +107,7 @@
             }
         },
         created() {
-            this.getProduct()
+            this.getProductOut()
         },
     }
 </script>

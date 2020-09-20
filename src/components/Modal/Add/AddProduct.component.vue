@@ -7,7 +7,7 @@
       v-on:click="toggleModal()"
     >
       <i class="fas fa-plus-circle inline-block"></i>
-      <p class="inline-block ml-2">Tambah User</p>
+      <p class="inline-block ml-2">Tambah Product All</p>
     </button>
     <div
       v-if="showModal"
@@ -129,7 +129,7 @@ export default {
     },
     onFileChange() {
       this.photo = this.$refs.file.files[0];
-      console.log(this.photo);
+      // console.log(this.photo);
     },
     removeImage() {
       this.photo = null;
