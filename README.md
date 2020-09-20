@@ -1,6 +1,7 @@
 # vue-heroku
 
 Heroku: https://vueherokuuu.herokuapp.com/login
+Resources Deploy: https://cli.vuejs.org/guide/deployment.html#heroku
 
 -   [x] Register
 -   [x] Login

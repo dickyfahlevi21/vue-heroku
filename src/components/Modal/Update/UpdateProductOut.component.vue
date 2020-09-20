@@ -24,12 +24,16 @@
             <div class="relative">
                 <label  class="text-left block text-gray-700 text-base font-bold">Pilih ID Product</label>
                 <select 
-                    v-for="(product, idx) in products.productOut"
-                    :key="idx"
                     v-model="id"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state"
                 >
-                    <option>{{ product.id }}</option>
+                    <option
+                        v-for="(product, idx) in products.productIn"
+                        :key="idx"
+                        :value="product.id"
+                    >
+                        {{ product.id }}
+                    </option>
                 </select>
             </div>
             <!-- Product Name -->

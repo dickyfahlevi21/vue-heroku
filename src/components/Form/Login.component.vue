@@ -57,8 +57,8 @@
         name: "Login",
         data() {
             return {
-                username: "dickyfahlevi21",
-                password: "123456789",
+                username: "",
+                password: "",
             };
         },
         methods: {
