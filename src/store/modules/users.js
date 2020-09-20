@@ -16,7 +16,7 @@ const actions = {
      * @GET
      */
     async getUser({ commit }) {
-        const { data } = await APIV1.get("/user", {
+        const { data } = await APIV1.get("/user?limit=7&page=1", {
             headers: { Authorization: `bearer ${localStorage.getItem("token")}` }
         })
         // console.log(data.data.data, " INI USER DARI ACTION ")

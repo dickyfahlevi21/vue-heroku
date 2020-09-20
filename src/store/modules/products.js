@@ -24,21 +24,21 @@ const actions = {
      * @GET
      */
     async getProduct({ commit }) {
-        const { data } = await APIV1.get("/product", {
+        const { data } = await APIV1.get("/product?limit=5&page=1", {
             headers: { Authorization: `bearer ${localStorage.getItem("token")}`}
         })
         // console.log(data.data.data, " INI PRODUCTS DARI ACTION ")
         commit("setProductList", data.data.data)
     },
     async getProductIn({ commit }) {
-        const { data } = await APIV1.get("/in", {
+        const { data } = await APIV1.get("/in?limit=5&page=1", {
             headers: { Authorization: `bearer ${localStorage.getItem("token")}` }
         })
         // console.log(data.data.data, " INI PRODUCTS IN DARI ACTION ")
         commit("setProductIn", data.data.data)
     },
     async getProductOut({ commit }) {
-        const { data } = await APIV1.get("/out", {
+        const { data } = await APIV1.get("/out?limit=5&page=1", {
             headers: { Authorization: `bearer ${localStorage.getItem("token")}` }
         })
         // console.log(data.data.data, " INI PRODUCTS OUT DARI ACTION ")
@@ -48,8 +48,9 @@ const actions = {
     /**
      * @POST
      */
+
     async addProduct(_, payload) {
-        APIV1.post("/product?limit=100&page=1", payload, {
+        APIV1.post("/product", payload, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
